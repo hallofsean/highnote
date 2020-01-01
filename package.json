@@ -15,11 +15,15 @@
     "react-scripts": "3.3.0",
     "typescript": "^3.7.4"
   },
+  "homepage": "./",
+  "main": "src/electron-starter.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev" : "nf start",
+    "electron": "electron ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "electron": "^7.1.7",
+    "foreman": "^3.0.1"
   }
 }
