@@ -9,6 +9,8 @@ const HEADER4 = '#### ';
 const HEADER5 = '##### ';
 const HEADER6 = '###### ';
 
+const HEADER1_UNDERLINE = /^==+$/;
+const HEADER2_UNDERLINE = /^--+$/;
 
 interface Props {
     text: String;
@@ -50,7 +52,19 @@ class Markdown extends React.Component<Props, State> {
 
                 artifacts.push(artifact);
             } else {
-                buffer.push(line);
+                if (HEADER1_UNDERLINE.test(line)) {
+                    if (buffer.length > 0) {
+                        var last = buffer.pop();
+                        artifacts.push(<MarkdownHeader text={last!} level={1} />)
+                    }
+                } else if (HEADER2_UNDERLINE.test(line)) {
+                    if (buffer.length > 0) {
+                        var last = buffer.pop();
+                        artifacts.push(<MarkdownHeader text={last!} level={2} />)
+                    }
+                } else {
+                    buffer.push(line);
+                }
             }
         })
 
