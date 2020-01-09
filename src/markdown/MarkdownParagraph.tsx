@@ -16,6 +16,7 @@ class MarkdownParagraph extends React.Component<Props, State> {
             inner.push(<>{line}</>);
             inner.push(<br></br>);
         });
+    
         inner.pop();
 
         return <p>{inner}</p>;
