@@ -1,5 +1,4 @@
-import React, { ReactNode } from 'react'
-import MarkdownHeader from './MarkdownHeader';
+import React, { ReactNode } from 'react';
 
 interface Props {
     lines: string[];

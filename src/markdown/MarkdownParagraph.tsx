@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
+import MarkdownInline from './inline/MarkdownInline';
 
 interface Props {
     lines: string[];
@@ -10,16 +11,8 @@ interface State {
 
 class MarkdownParagraph extends React.Component<Props, State> {
     render() {
-        var inner: ReactNode[] = [];
-        
-        this.props.lines.forEach(line => {
-            inner.push(<>{line}</>);
-            inner.push(<br></br>);
-        });
-    
-        inner.pop();
-
-        return <p>{inner}</p>;
+        let text = this.props.lines.join("\n");
+        return <p><MarkdownInline text={text}></MarkdownInline></p>
     }
 }
 

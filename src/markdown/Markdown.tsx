@@ -44,6 +44,7 @@ class Markdown extends React.Component<Props, State> {
                     mode = TextMode.QUOTE;
                 }
             } else {
+                let text: string;
                 if (mode !== TextMode.TEXT) {
                     artifacts.push(this.process_buffer(buffer, mode));
                     buffer = [];
@@ -52,42 +53,42 @@ class Markdown extends React.Component<Props, State> {
                 
                 if (HEADER1.test(line)) {
                     const groups = line.match(HEADER1);
-                    var text = '';
+                    text = '';
                     if (groups!.length > 1) {
                         text = groups![1];
                     }
                     artifact = <MarkdownHeader text={text} level={1} />;
                 } else if (HEADER2.test(line)) {
                     const groups = line.match(HEADER2);
-                    var text = '';
+                    text = '';
                     if (groups!.length > 1) {
                         text = groups![1];
                     }
                     artifact = <MarkdownHeader text={text} level={2} />;
                 } else if (HEADER3.test(line)) {
                     const groups = line.match(HEADER3);
-                    var text = '';
+                    text = '';
                     if (groups!.length > 1) {
                         text = groups![1];
                     }
                     artifact = <MarkdownHeader text={text} level={3} />;
                 } else if (HEADER4.test(line)) {
                     const groups = line.match(HEADER4);
-                    var text = '';
+                    text = '';
                     if (groups!.length > 1) {
                         text = groups![1];
                     }
                     artifact = <MarkdownHeader text={text} level={4} />;
                 } else if (HEADER5.test(line)) {
                     const groups = line.match(HEADER5);
-                    var text = '';
+                    text = '';
                     if (groups!.length > 1) {
                         text = groups![1];
                     }
                     artifact = <MarkdownHeader text={text} level={5} />;
                 } else if (HEADER6.test(line)) {
                     const groups = line.match(HEADER6);
-                    var text = '';
+                    text = '';
                     if (groups!.length > 1) {
                         text = groups![1];
                     }
